@@ -1,0 +1,21 @@
+{
+    "date": "Date - August 11, 2020",
+    "time": "8:15 AM PST",
+    "job_for": "Greg Wells",
+    "department": "Camera",
+    "position": "Camera Operator",
+    "city": "Los Angeles, California",
+    "rate": "$600 Per Day",
+    "total_hours": "8 Hours Per Day",
+    "location": "5734 Madrid Ave., Los Angeles, California",
+    "directions": "https://goo.gl/maps/SE1NVNCQeCnZRrMY9",
+    "schedule": "Check your schedule here",
+    "parking": "It is a long established fact that a reader will be distracted by the readable  content of a page when looking at its layout.",
+    "hospital": "carLos Angeles Community Hospital - 4081 E Olympic Blvd, Los Angeles, CA 90023",
+    "production_contact": "Jack Keane - 1234567890",
+    "sunrise_sunset": "6:45am 7:12pm",
+    "weather_forecast": "42/69 8%",
+    "notes": "car commercial on location in downtown LBC.",
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTk2NjE2ODQ0LCJqdGkiOiJlMDI2ZWQzNzY4ZjU0MTg2YjRkMDBmYzU4ODE1NmQ3NSIsInVzZXJfaWQiOjEsImZpcnN0X25hbWUiOiJUaWVqdW4iLCJsYXN0X25hbWUiOiJaaGVuZyIsImVtYWlsIjoiYmlnc2hvdC5kZXZlbG9wZXI5MjhAZ21haWwuY29tIiwiY2xpZW50X2lkIjoxfQ.j9ERNHvHebtAzxtFQy05V1lN_c5Pw25fzSdKejDJiY0",
+    "call_sheet_patch_url": "http://0.0.0.0:5000/api/v1/job_memo/1/"
+}

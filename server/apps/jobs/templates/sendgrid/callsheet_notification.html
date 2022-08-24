@@ -1,0 +1,270 @@
+<html>
+    <head>
+        <title>Mobile version</title>
+        <style>
+            table {
+                width: 100%;
+                height: 100%;
+                font-size: 45px;
+                font-family: arial;
+                color: #ffffff;
+                background: rgb(199,150,69);
+                background: linear-gradient(180deg, rgba(199,150,69,1) 0%, rgba(65,48,20,1) 70%, rgba(52,38,16,1) 100%);
+            }
+            h1, h2, h3, h4, h5 {
+                text-align: center;
+                margin: 0;
+                font-weight: 100;
+            }
+            a {
+                color: #ffffff;
+            }
+            .record-row td {
+                padding: 0 1.5em;
+                font-size: 0.6em;
+	        width: 48%;
+            }
+            .record-row td:first-child{
+                text-align: right;
+            }
+
+            .pt-20 {
+                padding-top: 20px;
+            }
+
+            .pt-50 {
+                padding-top: 50px;
+            }
+
+            .pb-20 {
+                padding-bottom: 20px;
+            }
+
+            .pt-100 {
+                padding-top: 100px;
+            }
+
+            .indicator-row, .decline-row {
+                text-align: center;
+                font-size: 0.6em;
+            }
+
+            /* The container */
+            .container {
+                display: block;
+                position: relative;
+                padding-left: 30px;
+                margin-bottom: 10px;
+                cursor: pointer;
+                font-size: 1.3em;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+            /* Hide the browser's default radio button */
+            .container input {
+                position: absolute;
+                cursor: pointer;
+            }
+
+             /* Create a custom radio button */
+            .checkmark {
+                position: absolute;
+                top: 5px;
+                left: calc(60px + 50%);
+                height: 25px;
+                width: 25px;
+                background-color: transparent;
+                border: 1px solid white;
+                border-radius: 50%;
+            }
+            /* On mouse-over, add a gray background color */
+            .container:hover input ~ .checkmark {
+                background-color: #999999;
+            }
+            /* When the radio button is selected, add a blue background */
+            .container input:checked ~ .checkmark {
+                background-color: #07a903;
+                border: 1px solid transparent;
+                box-shadow: 0px 0px 5px 5px rgba(7,169,3, 0.3);
+            }
+
+            .decline-area {
+                background-color: #cacaca;
+                box-shadow: -5px 5px 5px 0px rgba(153,153,153,0.75) inset;
+                width: 70%;
+            }
+
+            .send-btn {
+                font-size: 1em;
+                padding: 20px 40px;
+                background: transparent;
+                border: 1px solid white;
+                color: #fcfafa;
+                text-shadow: 1px 1px 15px #fcfafa;
+            }
+        </style>
+    </head>
+    <body>
+        <section class="content-wrapper">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="pt-50" colspan="3" style="text-align: center;">
+                            <img src="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAHoAAAA9CAMAAABV2o0CAAAAAXNSR0IB2cksfwAAAutQTFRFAAAA////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////CUv0wAAAAPl0Uk5TAAVDmt3378ZyIR9vwe3enUcHEpH/886yvNxUS9jisMzwGTpGQjs0LykkIiYrNTk9QUQWDrUbCQ916flgTvXseS4QChiztBXI/uHb1c/N0vH86r2JQIGb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">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="pt-20" colspan="3" style="text-align: center;">
+                            <span>Callsheet Memo</span>
+                        </td>
+                    </tr>
+                    <tr class="record-row">
+                        <td align="right">
+                            <span>Day:</span>
+                        </td>
+                        <td>
+                            <span>{{ date }}</span>
+                        </td>
+                    </tr>
+                    <tr class="record-row">
+                        <td align="right">
+                            <span>1:</span>
+                        </td>
+                        <td>
+                            <span>{{ time }}</span>
+                        </td>
+                    </tr>
+                    <tr class="record-row">
+                        <td align="right">
+                            <span>Job For:</span>
+                        </td>
+                        <td>
+                            <span>{{ job_for }}</span>
+                        </td>
+                    </tr>
+                    <tr class="record-row">
+                        <td align="right">
+                            <span>Department:</span>
+                        </td>
+                        <td>
+                            <span>{{ department }}</span>
+                        </td>
+                    </tr>
+                    <tr class="record-row">
+                        <td align="right">
+                            <span>Position:</span>
+                        </td>
+                        <td>
+                            <span>{{ position }}</span>
+                        </td>
+                    </tr>
+                    <tr class="record-row">
+                        <td align="right">
+                            <span>City:</span>
+                        </td>
+                        <td>
+                            <span>{{ city }}</span>
+                        </td>
+                    </tr>
+                    {{#if rate }}
+                    <tr class="record-row">
+                        <td align="right">
+                            <span>Rate:</span>
+                        </td>
+                        <td>
+                            <span>{{ rate }}</span>
+                        </td>
+                    </tr>
+                    {{/if}}
+                    <tr class="record-row">
+                        <td align="right">
+                            <span>Total Hours:</span>
+                        </td>
+                        <td>
+                            <span>{{ total_hours }}</span>
+                        </td>
+                    </tr>
+                    <tr class="record-row">
+                        <td align="right">
+                            <span>Location:</span>
+                        </td>
+                        <td>
+                            <span>{{ location }}</span>
+                        </td>
+                    </tr>
+                    <tr class="record-row">
+                        <td align="right">
+                            <span>Directions:</span>
+                        </td>
+                        <td>
+                            <span>{{ directions }}</span>
+                        </td>
+                    </tr>
+                    <tr class="record-row">
+                        <td align="right">
+                            <span>Schedule:</span>
+                        </td>
+                        <td>
+                            <span>{{ schedule }}</span>
+                        </td>
+                    </tr>
+                    <tr class="record-row">
+                        <td align="right">
+                            <span>Parking:</span>
+                        </td>
+                        <td>
+                            <span>{{ parking }}</span>
+                        </td>
+                    </tr>
+                    <tr class="record-row">
+                        <td align="right">
+                            <span>Hospital:</span>
+                        </td>
+                        <td>
+                            <span>{{ hospital }}</span>
+                        </td>
+                    </tr>
+                    <tr class="record-row">
+                        <td align="right">
+                            <span>Production Contact:</span>
+                        </td>
+                        <td>
+                            <span>{{ production_contact }}</span>
+                        </td>
+                    </tr>
+                    <tr class="record-row">
+                        <td align="right">
+                            <span>Sunrise/Sunset:</span>
+                        </td>
+                        <td>
+                            <span>{{ sunrise_sunset }}</span>
+                        </td>
+                    </tr>
+                    <tr class="record-row">
+                        <td align="right">
+                            <span>Weather Forecast:</span>
+                        </td>
+                        <td>
+                            <span>{{ weather_forecast }}</span>
+                        </td>
+                    </tr>
+                    <tr class="record-row">
+                        <td align="right">
+                            <span>Notes:</span>
+                        </td>
+                        <td>
+                            <span>{{ notes }}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center" style="padding: 30px 0">
+                            <a style="background-color:#2f80ed; border:1px solid #2f80ed; border-color:#2f80ed; border-radius:0px; border-width:1px; color:#ffffff; display:inline-block; font-family:verdana,geneva,sans-serif; font-size:16px; font-weight:normal; letter-spacing:1px; line-height:30px; padding:12px 20px 12px 20px; text-align:center; text-decoration:none; border-style:solid;" href="{{call_sheet_patch_url}}" target="_blank">View CallSheet</a>
+                        </td>
+                    </tr>
+	        </tbody>
+            </table>
+        </section>
+    </body>
+</html>

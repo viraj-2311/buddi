@@ -1,0 +1,2 @@
+web: gunicorn --bind :8000 --worker-class=gevent --worker-connections=1000 --workers=5  benji_app.wsgi:application
+celery: celery -A benji_app worker --broker=pyamqp://localhost//

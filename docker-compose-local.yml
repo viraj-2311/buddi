@@ -1,0 +1,147 @@
+version: "3"
+
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_DB=benji
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - dbdata:/var/lib/postgresql/data/:delegated
+    ports:
+      - "5432:5432"
+
+  benji_rabbit:
+    image: rabbitmq:3-management
+    environment:
+      RABBITMQ_DEFAULT_USER: user
+      RABBITMQ_DEFAULT_PASS: password
+      POSTGRES_USER: dev
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+
+  server-dev:
+    build:
+      context: .
+      dockerfile: docker/server/Dockerfile
+    volumes:
+      - ./server:/server:cached
+      - ./docker/scripts/entrypoint.sh:/server/entrypoint.sh:cached
+    environment:
+      - BENJI_DATABASE_NAME=benji
+      - PGPASSWORD=password
+      - BENJI_DATABASE_USER=postgres
+      - BENJI_DATABASE_PASSWORD=password
+      - BENJI_DATABASE_HOST=db
+      - BENJI_DATABASE_PORT=5432
+      - SENDGRID_API_KEY=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
+    env_file: docker/envs/.env.server
+    restart: on-failure
+    depends_on:
+      - benji_rabbit
+      - db
+    ports:
+      - "8000:8000"
+
+  server-dev-local-db:
+    build:
+      context: .
+      dockerfile: docker/server/Dockerfile
+    volumes:
+      - ./server:/server:cached
+      - ./docker/scripts/entrypoint.sh:/server/entrypoint.sh:cached
+      - ./docker/envs/.env.template.server:/server/.env.template:cached
+    environment:
+      BENJI_ENVIRONMENT: local_noserver
+      BENJI_DB_NAME: benji
+      BENJI_DB_USER: postgres
+      BENJI_DB_PASSWORD: password
+      BENJI_DB_HOST: localhost
+      BENJI_DB_PORT: 5432
+      DATABASE_NAME: benji
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: password
+      DATABASE_HOST: localhost
+      DATABASE_PORT: 5432
+      BENJI_RABBIT_HOST: localhost
+      SENDGRID_API_KEY: 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
+    restart: on-failure
+    network_mode: "host"
+    depends_on:
+      - benji_rabbit
+
+  server-with-db:
+    build:
+      context: .
+      dockerfile: docker/server/Dockerfile
+    volumes:
+      - ./server:/server
+      - ./docker/scripts/entrypoint.sh:/server/entrypoint.sh
+      - ./docker/envs/.env.template.server:/server/.env.template
+    ports:
+      - "8000:8000"
+    # Please create an empty file if you encounter error
+    #env_file: ./server/.env
+    environment:
+      BENJI_DATABASE_USER: postgres
+      BENJI_DATABASE_HOST: db
+    restart: on-failure
+    depends_on:
+      - db
+      - benji_rabbit
+
+  server-with-dev-db:
+    build:
+      context: .
+      dockerfile: docker/server/Dockerfile
+    volumes:
+      - ./server:/server:cached
+      - ./docker/scripts/entrypoint.sh:/server/entrypoint.sh
+      - ./docker/envs/.env.template.server:/server/.env.template
+    ports:
+      - "8000:8000"
+    environment:
+      BENJI_ENVIRONMENT: local_noserver
+      BENJI_DATABASE_NAME: benji
+      BENJI_DATABASE_USER: benji_user
+      BENJI_DATABASE_PASSWORD: lnKoeTfR6Zm18H9mTkwJYUY40eB9ySU
+      BENJI_DATABASE_HOST:  benji-dev.ct9wir7vckpj.us-east-2.rds.amazonaws.com
+      BENJI_DATABASE_PORT: 5432
+      PGPASSWORD: lnKoeTfR6Zm18H9mTkwJYUY40eB9ySU
+      SENDGRID_API_KEY: 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
+      DJANGO_AWS_ACCESS_KEY_ID: AKIAWQMZOM3FVNSUBTNF
+      DJANGO_AWS_SECRET_ACCESS_KEY: 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
+    restart: on-failure
+    depends_on:
+      - db
+      - benji_rabbit
+
+  client:
+    build:
+      context: .
+      dockerfile: docker/client/Dockerfile
+    command: yarn start
+    volumes:
+      - ./client:/client
+      - ./docker/scripts/entrypoint.sh:/client/entrypoint.sh:cached
+    stdin_open: true
+    ports:
+      - "3000:3000"
+
+  celery_flower:
+    image: mher/flower
+    command:
+      [
+        "flower",
+        "--broker=pyamqp://user:password@benji_rabbit//",
+        "--port=5555",
+      ]
+    ports:
+      - 5555:5555
+    depends_on:
+      - benji_rabbit
+
+volumes:
+  dbdata:

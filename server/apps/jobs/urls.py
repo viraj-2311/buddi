@@ -1,0 +1,103 @@
+from django.urls import include, path
+
+from apps.jobs import views
+
+v1_urlpatterns = [
+    # Locations
+    path("locations/", views.LocationEntityList.as_view(), name="job-location-list"),
+
+    # Job Role Group Types
+    path("job_role_group_type/",
+         views.JobRoleGroupTypeViewSet.as_view({"post": "create"}),
+         name="job-role-group-type"),
+    path("job_role_group_type/<int:pk>/",
+         views.JobRoleGroupTypeViewSet.as_view({"patch": "partial_update", "delete": "destroy", "get": "retrieve"}),
+         name="job-role-group-type-detail"),
+    # Job Role Group
+    path("job_role_group/",
+         views.JobRoleGroupViewSet.as_view({"post": "create"}),
+         name="job-role-group"),
+    path("job_role_group/<int:pk>/",
+         views.JobRoleGroupViewSet.as_view({"delete": "destroy", "patch": "partial_update"}),
+         name="job-role-group-detail"),
+    # Job Role Types
+    path("job_role_type/",
+         views.JobRoleTypeViewSet.as_view({"post": "create"}),
+         name="job-role-type"),
+    path("job_role_type/<int:pk>/",
+         views.JobRoleTypeViewSet.as_view({"patch": "partial_update", "delete": "destroy", "get": "retrieve"}),
+         name="job-role-type-detail"),
+    # Job Role
+    path("job_role/",
+         views.JobRoleViewSet.as_view({"post": "create"}),
+         name="job-role"),
+    path("job_role/<int:pk>/",
+         views.JobRoleViewSet.as_view({"delete": "destroy", "patch": "partial_update"}),
+         name="job-role-detail"),
+    # Jobs Documents
+    path("job/<int:pk>/documents/download_all_as_zip",
+         views.JobDocumentsViewSet.as_view({"get": "download_all_docs_as_zip" }),
+         name="job-docs-zip"),
+    path("job/<int:pk>/documents/download_all_w9_as_zip",
+         views.JobDocumentsViewSet.as_view({"get": "download_all_w9_as_zip"}),
+         name="job-docs-zip"),
+    path("job/<int:pk>/documents/download_all_invoice_as_zip",
+         views.JobDocumentsViewSet.as_view({"post": "download_all_invoice_as_zip"}),
+         name="job-docs-zip"),
+
+    # Jobs
+    path("company/<int:company_id>/job/",
+         views.JobViewSet.as_view({"post": "create", "get": "list"}),
+         name="job"),
+    path("job/bulk_delete/",
+         views.JobViewSet.as_view({"delete": "bulk_delete"}),
+         name="job-detail"),
+    path("job/<int:pk>/",
+         views.JobViewSet.as_view({"put": "update", "delete": "destroy", "get": "retrieve", "patch": "partial_update"}),
+         name="job-detail"),
+    path("job/<int:job_id>/job_role_group/dnd/",
+         views.JobViewSet.as_view({"post": "job_role_group_dnd"}),
+         name="job-role-group-dnd"),
+    path("job/<int:job_id>/schedule_shoot_note/",
+         views.JobViewSet.as_view({"get": "retrieve_schedule_and_shoot_note"}),
+         name="job-schedule-shoot-note"),
+    path("job/<int:job_id>/save_crew_template/",
+         views.JobViewSet.as_view({"post": "save_crew_template"}),
+         name="job-save-crew-template"),
+    path("job/<int:job_id>/crew_template/<int:template_id>/",
+         views.JobViewSet.as_view({"post": "load_crew_template"}),
+         name="job-load-crew-template"),
+    path("job/<int:job_id>/can_load_template/<int:template_id>/",
+         views.JobViewSet.as_view({"get": "can_load_template"}),
+         name="job-can-load-template"),
+    path("job/<int:job_id>/crew_templates/",
+         views.JobViewSet.as_view({"get": "get_crew_templates"}),
+         name="job-get-crew-templates"),
+    path("job/delete/",
+         views.JobViewSet.as_view({"delete": "job_delete"}),
+         name="job-delete"),
+    path("company/<int:company_id>/job/archive/",
+         views.JobViewSet.as_view({"get": "archive_list"}),
+         name="job-archive"),
+    path("job/archive/download/",
+         views.JobViewSet.as_view({"post": "archive_job_download"}),
+         name="archive-job-download"),
+    path("company/<int:company_id>/job/reinstate/",
+         views.JobViewSet.as_view({"post": "reinstate_job"}),
+         name="job-reinstate"),
+
+]
+
+urlpatterns = [
+    path("", include(v1_urlpatterns)),
+    path("", include("apps.jobs.url.bid")),
+    path("", include("apps.jobs.url.callsheet")),
+    path("", include("apps.jobs.url.cast")),
+    path("", include("apps.jobs.url.client_info")),
+    path("", include("apps.jobs.url.crew")),
+    path("", include("apps.jobs.url.documents")),
+    path("", include("apps.jobs.url.location")),
+    path("", include("apps.jobs.url.schedule")),
+    path("", include("apps.jobs.url.script")),
+    path("", include("apps.jobs.url.pre_production")),
+]

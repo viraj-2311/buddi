@@ -1,0 +1,105 @@
+{
+  "Watermarks": {
+  },
+  "Pages": {
+    "Cover Page": {
+      "page_number": 1,
+      "visible": true,
+      "page_title": "Cover Page",
+      "page_title_style": {
+        "font_size": "20",
+        "font_weight": "700"
+      }
+    },
+    "Title Page": {
+      "page_number": 2,
+      "visible": true,
+      "page_title": "Title Page",
+      "page_title_style": {
+        "font_size": "30",
+        "font_weight": "700"
+      }
+    },
+    "Attendees": {
+      "page_number": 3,
+      "visible": true,
+      "page_title": "Attendees",
+      "page_title_style": {
+        "font_size": "20",
+        "font_weight": "700"
+      }
+    },
+    "Boards/Scripts": {
+      "page_number": 4,
+      "visible": true,
+      "page_title": "Boards/Scripts",
+      "page_title_style": {
+        "font_size": "20",
+        "font_weight": "700"
+      }
+    },
+    "Schedule": {
+      "page_number": 5,
+      "visible": true,
+      "page_title": "Schedule",
+      "page_title_style": {
+        "font_size": "20",
+        "font_weight": "700"
+      }
+    },
+    "Cast": {
+      "page_number": 6,
+      "visible": true,
+      "page_title": "Talent",
+      "page_title_style": {
+        "font_size": "20",
+        "font_weight": "700"
+      }
+    },
+    "Wardrobe": {
+      "page_number": 7,
+      "visible": true,
+      "page_title": "Wardrobe",
+      "page_title_style": {
+        "font_size": "20",
+        "font_weight": "700"
+      }
+    },
+    "Callsheet": {
+      "page_number": 8,
+      "visible": true,
+      "page_title": "Client Calltime",
+      "page_title_style": {
+        "font_size": "20",
+        "font_weight": "700"
+      }
+    },
+    "Location": {
+      "page_number": 9,
+      "visible": true,
+      "page_title": "Location",
+      "page_title_style": {
+        "font_size": "20",
+        "font_weight": "700"
+      }
+    },
+    "Weather": {
+      "page_number": 10,
+      "visible": true,
+      "page_title": "Weather",
+      "page_title_style": {
+        "font_size": "20",
+        "font_weight": "700"
+      }
+    },
+    "Thank You": {
+      "page_number": 11,
+      "visible": true,
+      "page_title": "Thank You",
+      "page_title_style": {
+        "font_size": "20",
+        "font_weight": "700"
+      }
+    }
+  }
+}

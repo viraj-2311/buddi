@@ -1,0 +1,3 @@
+CN_STATUS_PENDING = "Pending"
+CN_STATUS_ACCEPTED = "Accepted"
+CN_STATUS_REJECTED = "Rejected"

@@ -1,0 +1,17 @@
+{
+    "memo_title": "Contractor Hold Memo",
+    "full_name": "Tiejun Zheng",
+    "producer_name": "Paul Graf",
+    "position": "1st Art Director",
+    "dates": "Jan 18th - Jan 22nd 2021",
+    "city": "New York",
+    "state": "NY",
+    "daily_hours": "10",
+    "working_days": "4 days",
+    "working_rate": "$1,100.00",
+    "project_rate": "$5000",
+    "exec_producer": "Paul Amorese",
+    "director": "Paul Jones",
+    "line_producer": "Paul Graf",
+    "job_memo_patch_url": "http://0.0.0.0:5000/api/v1/job_memo/1/"
+}

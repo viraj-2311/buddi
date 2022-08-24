@@ -1,0 +1,218 @@
+{% load humanize %}
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Invoice</title>
+
+    <style>
+
+        @page {
+            size: A4;
+            font-family: "Open Sans", sans-serif;
+        }
+
+        h1 {
+            font-family: "Open Sans", sans-serif;
+            font-weight: bold;
+            font-size: 25px;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            text-align: center;
+        }
+
+        p {
+            font-family: "Open Sans", sans-serif;
+            padding: 0;
+            margin: 0;
+            font-size: 16px;
+            line-height: 18px;
+            color: #2f2e50;
+        }
+
+        .font-14 {
+            font-size: 14px;
+        }
+
+        .font-18 {
+            font-size: 18px;
+        }
+
+        .box {
+            border: 2px solid #ccc;
+            margin-left: 100px;
+            margin-right: 100px;
+        }
+
+        .main-table {
+            width: 100%;
+        }
+
+        .row {
+
+        }
+
+        .cell {
+            padding-top: 20px;
+        }
+
+        .side-left {
+            width: 100px;
+            text-align: center;
+            vertical-align: top;
+        }
+
+        .side-right {
+            width: 140px;
+        }
+
+        .side-right-padding {
+            width: 20px;
+        }
+
+        .dashed-border-bottom {
+            border-bottom: 1px dashed #2f2e50;
+        }
+
+        .solid-border-bottom {
+            border-bottom: 1px solid #2f2e50;
+        }
+
+        .profile_image {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<h1>
+    Transaction Details
+</h1>
+
+<div class="box">
+
+    <table class="main-table">
+
+        <tr class="row">
+            <td class="cell side-left">
+                {% if receiver_image %}
+                    <img src="data:image/png;base64,{{ receiver_image }}" class="profile_image">
+                {% endif %}
+            </td>
+            <td class="cell dashed-border-bottom">
+                <p><b>{{ receiver_name }}</b></p>
+                <p class="font-14">{{ date }}</p>
+                <p class="font-14">{{ type }}</p>
+                <p><br></p>
+            </td>
+            <td class="cell side-right dashed-border-bottom">
+                <p class="font-18"><b>${{ amount|intcomma }}</b></p>
+            </td>
+            <td class="cell side-right-padding">
+            </td>
+        </tr>
+
+        <tr class="row">
+            <td class="cell side-left">
+            </td>
+            <td class="cell">
+                <p><b>Transaction ID</b></p>
+                <p>{{ transaction_id }}</p>
+            </td>
+            <td class="cell side-right">
+
+            </td>
+            <td class="cell side-right-padding">
+            </td>
+        </tr>
+
+        <tr class="row">
+            <td class="cell side-left">
+            </td>
+            <td class="cell">
+                <p><b>Account information</b></p>
+                <p>
+                    {{ account_type }}<br>
+                    {{ account_number }}
+                </p>
+            </td>
+            <td class="cell side-right">
+            </td>
+            <td class="cell side-right-padding">
+            </td>
+        </tr>
+
+        <tr class="row">
+            <td class="cell side-left">
+            </td>
+            <td class="cell">
+                <p><b>Request sent to</b></p>
+                <p>{{ receiver_name }}</p>
+                <p>{{ receiver_email }}</p>
+            </td>
+            <td class="cell side-right">
+            </td>
+            <td class="cell side-right-padding">
+            </td>
+        </tr>
+
+        <tr class="row">
+            <td class="cell side-left">
+            </td>
+            <td class="cell">
+                <p><b>Note</b></p>
+                <p>{{ note }}</p>
+            </td>
+            <td class="cell side-right">
+            </td>
+            <td class="cell side-right-padding">
+            </td>
+        </tr>
+
+        <tr class="row">
+            <td class="cell side-left">
+            </td>
+            <td class="cell solid-border-bottom">
+                <p><b>Details</b></p>
+                <p>{{ detail }}</p>
+                <p><br></p>
+            </td>
+            <td class="cell side">
+            </td>
+            <td class="cell side-right-padding">
+            </td>
+        </tr>
+
+        <tr class="row last-row">
+            <td class="cell side-left">
+            </td>
+            <td class="cell">
+                <p>
+                    <b>Amount</b>
+                    <br>
+                    <br>
+                </p>
+            </td>
+            <td class="cell side-right">
+                <p class="font-18">
+                    <b>${{ amount|intcomma }}</b>
+                    <br>
+                    <br>
+                </p>
+            </td>
+            <td class="cell side-right-padding">
+            </td>
+        </tr>
+
+    </table>
+
+</div>
+
+</body>
+</html>

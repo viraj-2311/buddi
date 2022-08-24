@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="27.27" height="37" viewBox="0 0 27.27 37">
+    <defs>
+        <linearGradient id="trz346mjga" x2="1.32" y1=".5" y2=".5" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#6e52fc"/>
+            <stop offset="1" stop-color="#52a0f8"/>
+        </linearGradient>
+    </defs>
+    <g>
+        <path fill="url(#trz346mjga)" d="M18.635 3a13.079 13.079 0 0 0-2.726.273A13.615 13.615 0 0 0 9.56 26.8a3.787 3.787 0 0 1 1.285 2.863v4.5a3.906 3.906 0 0 0 3.895 3.895h.545a3.854 3.854 0 0 0 6.7 0h.545a3.906 3.906 0 0 0 3.895-3.895v-4.5a3.777 3.777 0 0 1 1.246-2.843A13.617 13.617 0 0 0 18.635 3zm3.895 31.158h-7.79v-1.947h7.789zm0-3.895h-7.79v-1.947h7.789zm-2.922-10.886v5.044h-1.947v-5.044L14.1 15.833l1.383-1.383 3.155 3.155 3.155-3.155 1.383 1.383z" transform="translate(-4.997 -3)"/>
+    </g>
+</svg>

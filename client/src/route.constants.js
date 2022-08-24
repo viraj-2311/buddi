@@ -1,0 +1,20 @@
+export const PUBLIC_ROUTE = {
+  LANDING: '/',
+  SIGN_IN: '/login',
+  SIGN_UP: '/signup',
+  TERM_AND_SERVICE: '/term-of-service',
+  SIGN_UP_WELCOME: '/signup/welcome',
+  EMAIL_VERIFY: '/verification',
+  ACCEPT_COMPANY_REQUEST: '/accept-company-request',
+  DECLINE_COMPANY_REQUEST: '/decline-company-request',
+  FORGOT_PASSWORD: '/forgot-password',
+  RESET_PASSWORD: '/reset-password',
+  RESET_PASSWORD_WELCOME: '/reset-password/welcome',
+  VIEW_MEMO: '/view-memo',
+  PAGE_403: '/403',
+  PAGE_404: '/404',
+  PAGE_500: '/500',
+  MAINTENANCE: '/maintenance',
+  COMPANY_JOBS: '/c-job',
+  CLOSE_ACCOUNT: '/close-account'
+};

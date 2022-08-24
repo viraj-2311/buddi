@@ -1,0 +1,26 @@
+{
+  "theme": {
+    "layout": "landscape",
+    "fontFamily": "Roboto",
+    "fontSize": 14,
+    "accentColor": "#f97f71",
+    "presetAccentColors": ["#f2f2f2", "#e0e0e0", "#bdbdbd", "#828282", "#333333", "#000000", "#bbd883", "#ff77b2",
+      "#f97f71", "#56ccf2", "#32bea6"],
+    "textColor": "#333333",
+    "presetTextColors": ["#828282", "#333333", "#000000", "#bbd883", "#ff77b2", "#f97f71", "#56ccf2", "#32bea6"],
+    "isWatermarked": false
+  },
+  "visibility": {
+    "Cover Page": true,
+    "Title Page": true,
+    "Attendees": true,
+    "Boards/Scripts": true,
+    "Schedule": true,
+    "Cast": true,
+    "Wardrobe": true,
+    "Callsheet": true,
+    "Location": true,
+    "Weather": true,
+    "Thank You": true
+  }
+}

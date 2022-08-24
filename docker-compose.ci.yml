@@ -1,0 +1,22 @@
+version: "3.7"
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: docker/server/Dockerfile
+      cache_from:
+        - "${SERVER_IMAGE}"
+    image: "${SERVER_IMAGE}"
+    expose:
+      - 8000
+
+  client:
+    build:
+      context: .
+      dockerfile: docker/client/Dockerfile
+      cache_from:
+        - "${CLIENT_IMAGE}"
+    image: "${CLIENT_IMAGE}"
+    expose:
+      - 3000

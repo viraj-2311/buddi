@@ -1,0 +1,22 @@
+[flake8]
+max-line-length=120
+max-complexity=10
+multiline-quotes="""
+docstring-quotes="""
+inline-quotes="
+exclude =
+    .git,
+    __pycache__,
+    src,
+    bin,
+    benji_app/settings.py,
+    manage.py
+    build,
+    dist,
+    lib,
+    migrations,
+    docs,
+    venv,
+    .venv,
+    .env
+    apps/tests/

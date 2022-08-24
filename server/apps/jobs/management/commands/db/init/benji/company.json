@@ -1,0 +1,96 @@
+{
+  "production_company": {
+    "title": "Buddi",
+    "brand": "Buddi LLC",
+    "website": "https://www.benji.com",
+    "email": "benjillc@gmail.com",
+    "phone": "555-555-5555"
+  },
+  "job_role_in_group": {
+    "Band": [
+      "Band Leader",
+      "2nd Band Leader",
+      "3rd Band Leader",
+      "Lead Vocalist",
+      "Guitarist",
+      "Bassist",
+      "Drummer",
+      "Keyboards"
+    ],
+    "Sound Company": [],
+    "Lighting": [],
+    "Catering": []
+  },
+  "locations": [
+    {
+      "state": "Georgia",
+      "city": "Savannah",
+      "address_line1": "677 Ivy St.",
+      "address_line2": null,
+      "zip_code": 31404
+    },
+    {
+      "state": "Tennessee",
+      "city": "Antioch",
+      "address_line1": "55 Railroad St.",
+      "address_line2": null,
+      "zip_code": 37013
+    },
+    {
+      "state": "Maryland",
+      "city": "District Heights",
+      "address_line1": "64 East Shady Ave.",
+      "address_line2": null,
+      "zip_code": 20747
+    },
+    {
+      "state": "Wisconsin",
+      "city": "Oshkosh",
+      "address_line1": "7220 Manchester Ave.",
+      "address_line2": null,
+      "zip_code": 54901
+    },
+    {
+      "state": "Tennessee",
+      "city": "Gallatin",
+      "address_line1": "8226 Helen Dr.",
+      "address_line2": null,
+      "zip_code": 37066
+    },
+    {
+      "state": "Pennsylvania",
+      "city": "Carlisle",
+      "address_line1": "5 Bradford St.",
+      "address_line2": null,
+      "zip_code": 17013
+    },
+    {
+      "state": "Massachusetts",
+      "city": "Framingham",
+      "address_line1": "121 Worcester Rd",
+      "address_line2": null,
+      "zip_code": 1701
+    },
+    {
+      "state": "Massachusetts",
+      "city": "North Attleboro",
+      "address_line1": "1470 S Washington St",
+      "address_line2": null,
+      "zip_code": 2760
+    },
+    {
+      "state": "New York",
+      "city": "Brockport",
+      "address_line1": "6265 Brockport Spencerport Rd",
+      "address_line2": null,
+      "zip_code": 14420
+    },
+    {
+      "state": "New York",
+      "city": "Greece",
+      "address_line1": "100 Elm Ridge Center Dr",
+      "address_line2": null,
+      "zip_code": 14626
+    }
+  ]
+}

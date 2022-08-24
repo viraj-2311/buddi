@@ -1,0 +1,561 @@
+{% load humanize %}
+{% load phonenumber %}
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Invoice</title>
+
+    <style>
+
+        @page {
+            size: 870px 1350px;
+            font-family: "OpenSans", serif;
+        }
+
+        .header-row {
+            color: #fff;
+        }
+
+        .header-invoice, .billing-info, .amount-box-1, .total-box-1 {
+            width: 575px;
+        }
+
+        .header-invoice {
+            background-color: #000000;
+        }
+
+        .header-invoice-title-row {
+            text-align: left;
+            font-size: 40px;
+            font-weight: bold;
+            padding-left: 25px;
+            padding-top: 25px;
+            padding-bottom: 10px;
+        }
+
+        .tb-header-invoice-info {
+            font-size: 13px;
+        }
+
+        .header-invoice-job-info-row {
+            padding-bottom: 5px;
+        }
+
+        .header-invoice-job-info-row td {
+            vertical-align: top;
+        }
+
+        .header-invoice-field-cell {
+            font-weight: bold;
+        }
+
+        .header-invoice-field-col-1 {
+            width: 100px;
+            padding-left: 25px;
+        }
+
+        .header-invoice-field-col-2 {
+            width: 75px;
+        }
+
+        .header-contact {
+            background-color: #f48d3a;
+            text-align: right;
+            padding: 15px;
+        }
+
+        .header-contact p {
+            margin: 0;
+            padding: 0;
+            font-size: 13px;
+            line-height: 18px;
+        }
+
+        .billing-info {
+            padding: 50px;
+            font-size: 13px;
+        }
+
+        .billing-info p {
+            color: #2f2e50;
+            margin: 0;
+            padding: 0;
+            padding-bottom: 5px;
+        }
+
+        .billing-invoice {
+        }
+
+        .tb-billing-invoice {
+            font-size: 13px;
+            color: #2f2e50;
+        }
+
+        .tb-billing-invoice tr {
+            padding-bottom: 5px;
+        }
+
+        .billing-info-field-name {
+            text-align: right;
+        }
+
+        .billing-info-item {
+            padding-left: 7px;
+        }
+
+        .tb-billing-invoice-box {
+            border-collapse: separate;
+            background-color: #f0f0f7;
+            margin-top: 10px;
+            font-size: 13px;
+        }
+
+        .tb-billing-invoice-box tr {
+            padding-top: 7px;
+            padding-bottom: 3px;
+        }
+
+        .tb-billing-invoice-box tr td {
+
+        }
+
+        .tb-generic {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            font-size: 13px;
+            border-collapse: separate;
+        }
+
+        .tb-generic tr {
+            text-align: left;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        .tb-generic tr th {
+            padding-top: 10px;
+            text-align: left;
+        }
+
+        .tb-generic tr td {
+            padding-top: 10px;
+            text-align: left;
+        }
+
+        tr.bg-dark {
+            background-color: #000000;
+            color: #fff;
+        }
+
+        tr.bg-black {
+            background-color: #2f2e50;
+            color: #fff;
+        }
+
+        tr.bg-light {
+            background-color: #f0f0f7;
+        }
+
+        .total {
+            font-size: 13px;
+            color: #000000;
+        }
+
+        .total-box-1 {
+            background-color: #f0f0f7;
+            padding-left: 50px;
+            padding-right: 50px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        .total-box-1 p {
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .total-box-2 {
+            background-color: #f48d3a;
+            color: #fff;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .total-box-2 p {
+            padding: 0;
+            margin: 0;
+        }
+
+        .total-value {
+            font-size: 35px;
+        }
+
+        .amount {
+            font-size: 13px;
+            color: #000000;
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+
+        .amount-box-1-value {
+            padding-left: 5px;
+        }
+
+
+        .amount-box-items {
+            padding-bottom: 5px;
+        }
+
+        .powered-cell {
+            font-size: 13px;
+            text-align: center;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+<table>
+
+    <tr class="header-row">
+
+        <td class="header-invoice">
+
+            <table class="tb-header-invoice-info">
+
+                <tr class="header-invoice-title-row">
+                    <td colspan="4">Invoice</td>
+                </tr>
+
+                <tr class="header-invoice-job-info-row">
+
+                    <td class="header-invoice-field-cell header-invoice-field-col-1">
+                        Client:
+                    </td>
+                    <td>
+                        {{ job.client|default:"- -" }}
+                    </td>
+
+                    <td class="header-invoice-field-cell header-invoice-field-col-2">
+                        Job Name:
+                    </td>
+                    <td>
+                        {{ job.title|default:"- -" }}
+                    </td>
+
+                </tr>
+
+                <tr class="header-invoice-job-info-row">
+                    <td class="header-invoice-field-cell header-invoice-field-col-1">
+                        Job #:
+                    </td>
+                    <td>
+                        {{ job.job_number|default:"- -" }}
+                    </td>
+
+                    <td class="header-invoice-field-cell header-invoice-field-col-2">
+                        Date(s):
+                    </td>
+                    <td>
+                        {{ shoot_dates.first.date|default:"" }} - {{ shoot_dates.last.date|default:"" }}
+                    </td>
+
+                </tr>
+
+            </table>
+
+        </td>
+
+        <td class="header-contact">
+            <p><b>{{ invoice.bill_from.name|default:"" }}</b></p>
+
+            <p style="margin-top: 8px">{{ invoice.bill_from.address|default:"" }}{% if invoice.bill_from.address and invoice.bill_from.city %},{% endif %}
+                {{ invoice.bill_from.city|default:"" }}{% if invoice.bill_from.city and invoice.bill_from.state %},{% endif %}
+                {{ invoice.bill_from.state|default:"" }}{% if invoice.bill_from.state and invoice.bill_from.zip_code %},{% endif %}
+                {{ invoice.bill_from.zip_code|default:"" }}
+            </p>
+            <p style="margin-top: 16px">{{ invoice.bill_from.phone|phonenumber|default:"" }}</p>
+            <p>{{ invoice.bill_from.email|default:"" }}</p>
+        </td>
+
+    </tr>
+
+</table>
+
+<table>
+
+    <tr class="billing-row">
+
+        <td class="billing-info">
+
+            <p><b>Bill To</b></p>
+            <p><b>{{ invoice.bill_to.name|default:""}}</b></p>
+
+            <p style="margin-top: 8px">{{ invoice.bill_to.address|default:"" }}{% if invoice.bill_to.address and invoice.bill_to.city %},{% endif %}
+                {{ invoice.bill_to.city|default:"" }}{% if invoice.bill_to.city and invoice.bill_to.state %},{% endif %}
+                {{ invoice.bill_to.state|default:"" }}{% if invoice.bill_to.state and invoice.bill_to.zip_code %},{% endif %}
+                {{ invoice.bill_to.zip_code|default:"" }}
+            </p>
+            <p style="margin-top: 16px">{{ invoice.bill_to.phone|phonenumber|default:"" }}</p>
+            <p>{{ invoice.bill_to.email|default:"" }}</p>
+
+        </td>
+
+        <td class="billing-invoice">
+
+            <table class="tb-billing-invoice">
+
+                <tr>
+                    <td class="billing-info-field-name">
+                        <b>Invoice Number:</b>
+                    </td>
+                    <td class="billing-info-item">
+                        {{ invoice.invoice_number }}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="billing-info-field-name">
+                        <b>Invoice Date:</b>
+                    </td>
+                    <td class="billing-info-item">
+                        {{ invoice.invoice_date }}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="billing-info-field-name">
+                        <b>Payment Due:</b>
+                    </td>
+                    <td class="billing-info-item">
+                        {{ invoice.payment_due }}
+                    </td>
+                </tr>
+
+            </table>
+
+            <table class="tb-billing-invoice-box">
+
+                <tr>
+                    <td class="billing-info-field-name">
+                        <b>Amount Due:</b>
+                    </td>
+                    <td class="billing-info-item">
+                        $ {{ invoice.total_invoice_amount|floatformat:2|intcomma }}
+                    </td>
+                </tr>
+
+            </table>
+
+        </td>
+
+    </tr>
+
+</table>
+
+<table class="tb-generic">
+
+    <tr class="bg-dark">
+        <th style="width: 50px;"></th>
+        <th>Job Position</th>
+        <th>No. of Days</th>
+        <th>Day Rate</th>
+        <th>Kit Fee</th>
+        <th>Amount</th>
+    </tr>
+    <tr>
+        <td></td>
+        <td>{{ invoice.invoice_memo.job_memo.job_role.job_role_type.title }}</td>
+        <td>{{ invoice.invoice_memo.job_memo.working_days }}</td>
+        {% if invoice.invoice_memo.job_memo.working_rate %}
+            <td>${{ invoice.invoice_memo.job_memo.working_rate|floatformat:2|intcomma }}</td>
+        {% else %}
+            <td>N/A</td>
+        {% endif %}
+        {% if invoice.invoice_memo.job_memo.kit_fee %}
+            <td>${{ invoice.invoice_memo.job_memo.kit_fee|floatformat:2|intcomma }}</td>
+        {% else %}
+            <td>N/A</td>
+        {% endif %}
+        <td>${{ invoice.invoice_memo.job_memo.contract_value|floatformat:2|intcomma }}</td>
+    </tr>
+
+</table>
+
+{% if job_memo_rates|length %}
+    <table class="tb-generic">
+
+        <tr class="bg-light">
+            <th style="width: 50px;"></th>
+            <th>Rate Field Title</th>
+            <th>No. of Days</th>
+            <th>Day Rate</th>
+            <th></th>
+            <th>Amount</th>
+        </tr>
+        {% for job_memo_rate in job_memo_rates %}
+            <tr>
+                <td></td>
+                <td>{{ job_memo_rate.title }}</td>
+                <td>{{ job_memo_rate.number_of_days }}</td>
+                <td>${{ job_memo_rate.day_rate|floatformat:2|intcomma }}</td>
+                <td></td>
+                <td>${{ job_memo_rate.total_amount|floatformat:2|intcomma }}</td>
+            </tr>
+        {% endfor %}
+
+    </table>
+{% endif %}
+
+{% if line_items|length %}
+    <table class="tb-generic">
+
+        <tr class="bg-black">
+            <th style="width: 50px;"></th>
+            <th>Services</th>
+            <th>Units</th>
+            <th>No. of Days</th>
+            <th>Rate</th>
+            <th>Amount</th>
+        </tr>
+        {% for item in line_items %}
+            <tr>
+                <td></td>
+                <td>{{ item.title }}</td>
+                <td>{{ item.units }}</td>
+                <td>{{ item.number_of_days }}</td>
+                <td>${{ item.rate|floatformat:2|intcomma }}</td>
+                <td>${{ item.total_amount|floatformat:2|intcomma }}</td>
+            </tr>
+        {% endfor %}
+
+    </table>
+{% endif %}
+
+{% if receipts|length %}
+    <table class="tb-generic">
+
+        <tr class="bg-light">
+            <th style="width: 50px;"></th>
+            <th>Receipt</th>
+            <th>Date</th>
+            <th colspan="2">Notes</th>
+            <th>Amount</th>
+        </tr>
+        {% for receipt in receipts %}
+            <tr>
+                <td></td>
+                <td>{{ receipt.title }}</td>
+                <td>{{ receipt.payment_due }}</td>
+                <td colspan="2">{{ receipt.notes }}</td>
+                <td>${{ receipt.amount|floatformat:2|intcomma }}</td>
+            </tr>
+        {% endfor %}
+
+    </table>
+{% endif %}
+
+<table class="amount">
+    <tr>
+        <td class="amount-box-1"></td>
+        <td>
+            <table class="amount-box-items">
+                <tr>
+                    <td><b>Deal Memo Total:</b></td>
+                    <td class="amount-box-1-value">
+                        $ {{ invoice.invoice_memo.total_invoice_memo_amount|floatformat:2|intcomma|default:"0.00" }}
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Services Total:</b></td>
+                    <td class="amount-box-1-value">
+                        $ {{ invoice.total_invoice_lineitems_amount|floatformat:2|intcomma|default:"0.00" }}
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Receipt Total:</b></td>
+                    <td class="amount-box-1-value">
+                        $ {{ invoice.total_invoice_receipts_amount|floatformat:2|intcomma|default:"0.00" }}
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+
+<table class="total">
+    <tr>
+        <td class="total-box-1">
+            <p>
+                <b></b>
+            </p>
+            <p>
+            </p>
+        </td>
+        <td class="total-box-2">
+            <p class="total-value" style="padding-top: 20px;">
+                $ {{ invoice.total_invoice_amount|floatformat:2|intcomma }}
+            </p>
+            <p>Amount Due</p>
+        </td>
+    </tr>
+</table>
+
+<table class="tb-powered">
+    <tr>
+        <td class="powered-cell">
+            Powered by Buddi
+        </td>
+    </tr>
+</table>
+
+{% if receipts|length %}
+    <table class="tb-generic" align="center" style="border-collapse: separate; border-spacing: 0;">
+        <tr class="bg-dark">
+            <th style="width: 50px;"></th>
+            <th colspan="4">Attachments</th>
+        </tr>
+        {% for receipt in receipts %}
+            <tr>
+                <td style="vertical-align: middle;"></td>
+                <td width="30" align="center" style="vertical-align: middle;">
+                    <div style="margin-top: 60px; text-align: center; border-left: solid 1px #e8e8f1; border-top: solid 1px #e8e8f1; border-bottom: solid 1px #e8e8f1;">
+                        <img width="15" height="15"
+                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAAAhklEQVRIie3WMQqAMAyF4V/P5QEUr+Gggpe2HsJF66DgoJTGBqGQB28LfBkyBCxnWmABfGRXYNCAnQD1wH51TIUlqAc6YLvw6U8YLfwLrIJ/hZPxFBig5z440bVL4SqAr29AEYA183BKZSA6BhtssMEGG5wPvCgaTjLcIP+t3zoDtcr62ecAmX+IQtKkiaMAAAAASUVORK5CYII="/>
+                    </div>
+                </td>
+                <td width="70%" style="vertical-align: middle;">
+                    <div style="vertical-align: center; width: 70%; border-top: solid 1px #e8e8f1; border-bottom: solid 1px #e8e8f1;">
+                        <a style="font-size: 12px" href="{{ receipt.document }}" target="_blank" class="attachmentTitle"
+                           title="{{ receipt.title }}">{{ receipt.title }}</a>
+                    </div>
+                </td>
+                <td width="50" style="vertical-align: middle;">
+                    <div style=" width: 40px; text-align: center; border-top: solid 1px #e8e8f1; border-bottom: solid 1px #e8e8f1;">
+                        <img style="" width="15" height="15"
+                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABmJLR0QA/wD/AP+gvaeTAAAAnUlEQVRIie3UIQvCQBiA4UcR/AkWmxgNglWw+7NXxGISbIIgKFjEYJzFQxlDt3MDxb3wpePet9x3/BNLpPdZFL3UKhFIY+62SwSiaAJNoN7A3mOxsjsgc7aOic9xzYjy5oBRTABmuLyQ7zCMlQemOOfItxh8Kg9McHqSb9CvSh4Y44gVelXLA1106pJ/P4n3b77oJEFa11eRt/k/yg3AyT+Xxrmn1AAAAABJRU5ErkJggg=="/>
+                    </div>
+                </td>
+                <td width="45" style="vertical-align: middle;">
+                    <div style="display: block; border-right: solid 1px #e8e8f1; border-top: solid 1px #e8e8f1; border-bottom: solid 1px #e8e8f1;">
+                        <a style="font-size: 12px" href="{{ receipt.document }}" target="_blank" class="attachmentTitle"
+                           title="{{ receipt.title }}">Download</a>
+                    </div>
+                </td>
+                <td style="vertical-align: middle;"></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+{% load humanize %}
+
+<div class="box">
+
+    <table class="main-table">
+
+        <tr class="row">
+            <td class="cell side-left">
+                {% if item.sender_profile_photo_s3_url %}
+                    <img src="{{ item.sender_profile_photo_s3_url }}" class="profile_image">
+                {% endif %}
+            </td>
+            <td class="cell dashed-border-bottom">
+                <p><b>{{ item.sender_name }}</b></p>
+                <p class="font-14">{{ item.created_at }}</p>
+                <p class="font-14">Transfer to your bank account</p>
+                <p><br></p>
+            </td>
+            <td class="cell side-right dashed-border-bottom">
+                <p class="font-18"><b>- ${{ item.amount_value|floatformat:2|intcomma }}</b></p>
+            </td>
+            <td class="cell side-right-padding">
+            </td>
+        </tr>
+
+        <tr class="row">
+            <td class="cell side-left">
+            </td>
+            <td class="cell">
+                <p><b>Transaction ID</b></p>
+                <p>{{ item.transfer_id }}</p>
+            </td>
+            <td class="cell side-right">
+
+            </td>
+            <td class="cell side-right-padding">
+            </td>
+        </tr>
+
+        <tr class="row">
+            <td class="cell side-left">
+            </td>
+            <td class="cell">
+                <p><b>Account information</b></p>
+                <p>
+                    {{ item.sender_account_type }}<br>
+                    {{ item.sender_account_number }}
+                </p>
+            </td>
+            <td class="cell side-right">
+            </td>
+            <td class="cell side-right-padding">
+            </td>
+        </tr>
+
+        <tr class="row">
+            <td class="cell side-left">
+            </td>
+            <td class="cell">
+                <p><b>Request sent from</b></p>
+                <p>{{ item.sender_name }}</p>
+                <p>{{ item.sender_email }}</p>
+            </td>
+            <td class="cell side-right">
+            </td>
+            <td class="cell side-right-padding">
+            </td>
+        </tr>
+
+        {% if item.note %}
+
+            <tr class="row">
+                <td class="cell side-left">
+                </td>
+                <td class="cell">
+                    <p><b>Note</b></p>
+                    <p>{{ item.note }}</p>
+                </td>
+                <td class="cell side-right">
+                </td>
+                <td class="cell side-right-padding">
+                </td>
+            </tr>
+
+        {% endif %}
+
+    </table>
+
+</div>

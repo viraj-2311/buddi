@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="17.131" height="15.675" viewBox="0 0 17.131 15.675">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ebba16;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        fill: #27ae60;
+      }
+    </style>
+  </defs>
+  <g id="chat" transform="translate(0 -2.465)">
+    <path id="Path_1030" data-name="Path 1030" class="cls-1" d="M13,14.921v6.244a1.456,1.456,0,0,1-1.456,1.456L6.5,22.642,3.544,25.891V22.642H1.456A1.456,1.456,0,0,1,0,21.186V14.942a1.456,1.456,0,0,1,1.456-1.456l10.084-.021A1.456,1.456,0,0,1,13,14.921Z" transform="translate(0 -7.751)"/>
+    <path id="Path_1031" data-name="Path 1031" class="cls-2" d="M12.135,23.056H8.3a.3.3,0,1,1,0-.591h3.84a.3.3,0,1,1,0,.591Z" transform="translate(-5.637 -14.093)"/>
+    <path id="Path_1032" data-name="Path 1032" class="cls-2" d="M15.975,29.056H8.3a.3.3,0,0,1,0-.591h7.679a.3.3,0,0,1,0,.591Z" transform="translate(-5.637 -18.321)"/>
+    <path id="Path_1033" data-name="Path 1033" class="cls-2" d="M15.975,35.056H8.3a.3.3,0,0,1,0-.591h7.679a.3.3,0,0,1,0,.591Z" transform="translate(-5.637 -22.548)"/>
+    <path id="Path_1034" data-name="Path 1034" class="cls-3" d="M25.54,2.486,15.456,2.465A1.456,1.456,0,0,0,14,3.921V5.729l7.4-.015A1.456,1.456,0,0,1,22.861,7.17v5.447l2.068,2.274V11.642h.612A1.456,1.456,0,0,0,27,10.186V3.942A1.456,1.456,0,0,0,25.54,2.486Z" transform="translate(-9.865)"/>
+  </g>
+</svg>

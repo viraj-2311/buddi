@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56">
+    <g data-name="Group 5631">
+        <g data-name="Path 6385" style="fill:none">
+            <path d="M28 0A28 28 0 1 1 0 28 28 28 0 0 1 28 0z" style="stroke:none"/>
+            <path d="M28 2A25.916 25.916 0 0 0 9.615 9.615 25.916 25.916 0 0 0 2 28a25.916 25.916 0 0 0 7.615 18.385A25.916 25.916 0 0 0 28 54a25.916 25.916 0 0 0 18.385-7.615A25.916 25.916 0 0 0 54 28a25.916 25.916 0 0 0-7.615-18.385A25.916 25.916 0 0 0 28 2m0-2c15.464 0 28 12.536 28 28S43.464 56 28 56 0 43.464 0 28 12.536 0 28 0z" style="fill:#f48d3a;stroke:none"/>
+        </g>
+        <path data-name="Path 6384" d="m18 4-2.467 2.467L25.3 16.25H4v3.5h21.3l-9.765 9.783L18 32l14-14z" transform="translate(10 10)" style="fill:#f48d3a"/>
+    </g>
+</svg>

@@ -1,0 +1,42 @@
+version: "3.7"
+
+services:
+  benji_rabbit:
+    image: rabbitmq:3-management
+    environment:
+      RABBITMQ_DEFAULT_USER: user
+      RABBITMQ_DEFAULT_PASS: password
+      POSTGRES_USER: dev
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+
+  server:
+    image: "$SERVER_IMAGE"
+    depends_on:
+      - benji_rabbit
+    env_file: docker/envs/.env.server
+    ports:
+      - 8000:8000
+
+  client:
+    image: "$CLIENT_IMAGE"
+    stdin_open: true
+    ports:
+      - 3000:3000
+    depends_on:
+      - server
+    env_file: docker/envs/.env.client
+
+  celery_flower:
+    image: mher/flower
+    command:
+      [
+        "flower",
+        "--broker=pyamqp://user:password@benji_rabbit//",
+        "--port=5555",
+      ]
+    ports:
+      - 5555:5555
+    depends_on:
+      - benji_rabbit

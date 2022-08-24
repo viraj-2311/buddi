@@ -1,0 +1,3 @@
+PN_STATUS_PENDING = "Pending"
+PN_STATUS_ACCEPTED = "Accepted"
+PN_STATUS_REJECTED = "Rejected"

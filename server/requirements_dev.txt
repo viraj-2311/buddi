@@ -1,0 +1,7 @@
+-r requirements.txt
+
+flake8
+flake8-broken-line
+flake8-commas
+flake8-isort
+flake8-quotes

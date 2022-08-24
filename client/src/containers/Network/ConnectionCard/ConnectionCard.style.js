@@ -1,0 +1,189 @@
+import styled from 'styled-components';
+
+export const CardWrapper = styled.div`
+  margin: 10px;
+  float: left;
+  width: calc(50% - 20px);
+
+  @media only screen and (max-width: 1023px) {
+    width: 100%;
+  }
+
+  .ant-card,
+  .ant-card-body {
+    height: 100%;
+  }
+
+  .ant-card {
+    border-radius: 10px;
+    background-color: #ffffff;
+  }
+  .ant-card-body {
+    padding: 0;
+  }
+`;
+
+export const CardDetail = styled.div`
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin: 20px 0 10px;
+  padding: 25px 0 0 0;
+
+  h3,
+  p {
+    margin: 0;
+    font-size: 13px;
+  }
+  p {
+    margin: 5px 0 0 0;
+  }
+`;
+
+export const CardDetailItem = styled.div`
+  margin-left: 30px;
+  h3 {
+    font-weight: bold;
+  }
+  &:first-child {
+    margin: 0;
+  }
+`;
+
+export const CardTitleWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const CardTitleAction = styled.div`
+  .cardAction {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+`;
+
+export const CardTitle = styled.h2`
+  font-size: 20px;
+  color: #2f2e50;
+  margin: 0 20px 0 0;
+  white-space: normal;
+  font-weight: bold;
+`;
+
+export const CardBody = styled.div`
+  color: #2f2e50;
+  padding: 25px 30px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  @media only screen and (max-width: 767px) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .userAvatar {
+    margin: 0px 20px 0 0;
+    min-width: 100px;
+    max-width: 100px;
+    min-height: 100px;
+    max-height: 100px;
+    border-radius: 100px;
+    overflow: hidden;
+    cursor: pointer;
+    @media only screen and (max-width: 767px) {
+      margin: 0;
+      margin-bottom: 10px;
+    }
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .userInfo {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+
+    h4,
+    h5,
+    h6 {
+      color: #2f2e50;
+    }
+
+    h4 {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    h5 {
+      font-size: 15px;
+      margin-bottom: 8px;
+      margin-top: 5px;
+    }
+
+    h6 {
+      font-size: 13px;
+    }
+    .view-button {
+      @media only screen and (max-width: 767px) {
+        justify-content: center;
+        flex: 1;
+        display: flex;
+        width: 100%;
+        margin-top: 10px;
+      }
+    }
+
+    .basicDetail {
+      margin-right: auto;
+      @media only screen and (max-width: 767px) {
+        flex-wrap: wrap;
+        max-width: 100%;
+        width: 100%;
+      }
+      h4,
+      h5 {
+        @media only screen and (max-width: 767px) {
+          text-align: center;
+        }
+      }
+    }
+    .option-menu {
+      @media only screen and (max-width: 767px) {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+      }
+    }
+    .ellipseIcon {
+      color: #c5370f !important;
+      font-size: 25px;
+    }
+
+    .viewBtn {
+      min-width: 155px;
+      background-color: #f48d3a !important;
+      border-color: #f48d3a !important;
+      color: #ffffff;
+      margin-right: 20px;
+      // &:hover {
+      //   background-color: rgba(81, 54, 154, 0.8);
+      //   border-color: rgba(81, 54, 154, 0.8);
+      // }
+      @media only screen and (max-width: 767px) {
+        margin-right: 0;
+      }
+    }
+  }
+`;
+
+export const CardDescription = styled.h4``;
+
+export const CardIcon = styled.img`
+  width: 15px;
+  height: 15px;
+  margin-right: ${(props) => props.mr && props.mr}px;
+`;

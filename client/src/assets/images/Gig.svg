@@ -1,0 +1,9 @@
+<svg data-name="Component 74 – 554" xmlns="http://www.w3.org/2000/svg" width="37" height="33.3">
+    <defs>
+        <linearGradient id="a" x1=".068" y1=".616" x2="1.054" y2=".586" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#c5370f"/>
+            <stop offset="1" stop-color="#e17f08"/>
+        </linearGradient>
+    </defs>
+    <path data-name="Path 2142" d="M16.8 27.05V25.2H3.869l-.019 7.4a3.687 3.687 0 0 0 3.7 3.7h25.9a3.687 3.687 0 0 0 3.7-3.7v-7.4H24.2v1.85zM35.3 10.4h-7.419V6.7l-3.7-3.7h-7.4l-3.7 3.7v3.7H5.7A3.711 3.711 0 0 0 2 14.1v5.55a3.687 3.687 0 0 0 3.7 3.7h11.1v-3.7h7.4v3.7h11.1a3.711 3.711 0 0 0 3.7-3.7V14.1a3.711 3.711 0 0 0-3.7-3.7zm-11.1 0h-7.4V6.7h7.4z" transform="translate(-2 -3)" style="fill:url(#a)"/>
+</svg>
